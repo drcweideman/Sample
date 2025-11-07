@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Data Types: A 10-Minute Tutorial</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better readability and a clean academic look */
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: #f7f7f9; /* Light, web-safe background */
+        }
+        .section-card {
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .active-level {
+            background-color: #3b82f6 !important; /* Blue-600 */
+            color: white !important;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.5), 0 2px 4px -2px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- HEADER -->
+        <header class="text-center mb-10 bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-600">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-800">Data Used in Statistics</h1>
+            <p class="text-lg md:text-xl text-blue-600 mt-2 font-medium">A Quick Guide to Data Types and Measurement Levels (10-Minute Session)</p>
+            <p class="text-sm text-gray-500 mt-1">Based on "Types of Data Used in Statistics" Document</p>
+        </header>
+
+        <!-- DATA HIERARCHY (TYPES) -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-6 border-b pb-2">1. The Two Fundamental Types</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- QUALITATIVE DATA -->
+                <div class="bg-blue-100 p-6 rounded-xl shadow-md border-l-4 border-blue-600 section-card" onclick="toggleDetails('qualitative-details')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-blue-800">Qualitative Data (Categorical)</h3>
+                        <svg id="qualitative-icon" class="w-6 h-6 text-blue-600 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <p class="text-gray-600 mt-2">Used for descriptive analysis, focusing on non-numerical characteristics.</p>
+                    <div id="qualitative-details" class="mt-4 text-sm text-gray-700 hidden bg-blue-50 p-3 rounded-lg border border-blue-200">
+                        <p class="font-bold">Definition:</p>
+                        <p>Describes qualities or characteristics. It cannot be measured numerically but can be categorized. Often used to group data.</p>
+                        <p class="font-bold mt-2">Key Feature:</p>
+                        <ul class="list-disc ml-5 mt-1">
+                            <li><strong class="text-red-600">No Arithmetic:</strong> Addition/subtraction is meaningless.</li>
+                            <li><strong class="text-green-600">Categories:</strong> Examples include colors, gender, marital status.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- QUANTITATIVE DATA -->
+                <div class="bg-green-100 p-6 rounded-xl shadow-md border-l-4 border-green-600 section-card" onclick="toggleDetails('quantitative-details')">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-green-800">Quantitative Data (Numerical)</h3>
+                        <svg id="quantitative-icon" class="w-6 h-6 text-green-600 transition-transform transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <p class="text-gray-600 mt-2">Used for numerical analysis, focusing on measurable quantities or counts.</p>
+                    <div id="quantitative-details" class="mt-4 text-sm text-gray-700 hidden bg-green-50 p-3 rounded-lg border border-green-200">
+                        <p class="font-bold">Definition:</p>
+                        <p>Represents numerical measurements or counts. It can be measured and expressed numerically, allowing for arithmetic operations.</p>
+                        <p class="font-bold mt-2">Sub-Types (Click to view):</p>
+                        <ul class="list-disc ml-5 mt-1">
+                            <li><strong class="text-blue-600">Discrete:</strong> Counts (e.g., number of students, pages in a book).</li>
+                            <li><strong class="text-blue-600">Continuous:</strong> Can be any value in an interval (e.g., height, temperature, time).</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LEVELS OF MEASUREMENT (NOIR) -->
+        <section class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-6 border-b pb-2">2. The Four Levels of Measurement (NOIR)</h2>
+            <p class="text-md text-gray-600 mb-6">Click on each level below to reveal its characteristics and examples. The levels move from least informative (Nominal) to most informative (Ratio).</p>
+
+            <!-- Level Selector Tabs -->
+            <div id="level-tabs" class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <button class="level-btn bg-white p-4 rounded-xl shadow-md text-gray-700 font-semibold border-b-4 border-blue-400 hover:bg-blue-50" data-level="nominal" onclick="showLevel('nominal')">Nominal</button>
+                <button class="level-btn bg-white p-4 rounded-xl shadow-md text-gray-700 font-semibold border-b-4 border-orange-400 hover:bg-orange-50" data-level="ordinal" onclick="showLevel('ordinal')">Ordinal</button>
+                <button class="level-btn bg-white p-4 rounded-xl shadow-md text-gray-700 font-semibold border-b-4 border-red-400 hover:bg-red-50" data-level="interval" onclick="showLevel('interval')">Interval</button>
+                <button class="level-btn bg-white p-4 rounded-xl shadow-md text-gray-700 font-semibold border-b-4 border-green-400 hover:bg-green-50" data-level="ratio" onclick="showLevel('ratio')">Ratio</button>
+            </div>
+
+            <!-- Level Details Container -->
+            <div id="level-content" class="bg-white p-8 rounded-xl shadow-xl border border-gray-200 min-h-[250px] relative">
+                <div id="placeholder-content" class="text-center p-12 text-gray-500">
+                    <svg class="mx-auto w-12 h-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <p class="text-lg font-medium">Click a measurement level above to see its detailed analysis.</p>
+                </div>
+
+                <!-- NOMINAL CONTENT -->
+                <div id="nominal-content" class="level-details hidden text-gray-700">
+                    <h4 class="text-2xl font-bold text-blue-600 mb-3">Nominal Data (Labels)</h4>
+                    <p>Represents categories with **no inherent order or ranking**. Used for labeling variables without any quantitative value.</p>
+                    <h5 class="font-bold mt-4">Characteristics:</h5>
+                    <ul class="list-disc ml-6">
+                        <li>Categories are mutually exclusive.</li>
+                        <li>No numerical significance.</li>
+                        <li>Cannot be ordered or ranked.</li>
+                    </ul>
+                    <h5 class="font-bold mt-4">Examples:</h5>
+                    <p>Colors (Red, Blue), Gender (Male, Female), Marital Status (Single, Married).</p>
+                    <h5 class="font-bold mt-4">Appropriate Statistics:</h5>
+                    <p>Frequency counts, percentages, and mode.</p>
+                </div>
+
+                <!-- ORDINAL CONTENT -->
+                <div id="ordinal-content" class="level-details hidden text-gray-700">
+                    <h4 class="text-2xl font-bold text-orange-600 mb-3">Ordinal Data (Ranked Order)</h4>
+                    <p>Represents categories with a **meaningful order or ranking**, but the intervals between the categories are not necessarily equal or known.</p>
+                    <h5 class="font-bold mt-4">Characteristics:</h5>
+                    <ul class="list-disc ml-6">
+                        <li>Categories have a defined order or ranking.</li>
+                        <li>Intervals between categories **may not be equal**.</li>
+                        <li>Arithmetic operations are not meaningful (e.g., you can't subtract 'Good' from 'Excellent').</li>
+                    </ul>
+                    <h5 class="font-bold mt-4">Examples:</h5>
+                    <p>Educational Level (High School, Bachelor's, Master's), Ranking in a Competition (1st, 2nd, 3rd), Likert Scale Responses (Agree, Neutral, Disagree).</p>
+                    <h5 class="font-bold mt-4">Appropriate Statistics:</h5>
+                    <p>Median, percentiles, and non-parametric tests.</p>
+                </div>
+
+                <!-- INTERVAL CONTENT -->
+                <div id="interval-content" class="level-details hidden text-gray-700">
+                    <h4 class="text-2xl font-bold text-red-600 mb-3">Interval Data (Equal Intervals, No True Zero)</h4>
+                    <p>Represents numerical values where the **intervals between values are equal and meaningful**, but there is **no true zero point** (the zero is arbitrary). Ratios are not meaningful.</p>
+                    <h5 class="font-bold mt-4">Characteristics:</h5>
+                    <ul class="list-disc ml-6">
+                        <li>Equal intervals between values.</li>
+                        <li>**No true zero point.**</li>
+                        <li>Addition and subtraction are meaningful.</li>
+                        <li>Multiplication and division are **not meaningful** (e.g., 20°C is not twice as hot as 10°C).</li>
+                    </ul>
+                    <h5 class="font-bold mt-4">Examples:</h5>
+                    <p>Temperature in Celsius or Fahrenheit ($0^{\circ}C$ is not the absence of temperature), Calendar Dates (Year 2000, Year 2010), Scores on a Standardized Test (Score of 0 doesn't mean absence of knowledge).</p>
+                    <h5 class="font-bold mt-4">Appropriate Statistics:</h5>
+                    <p>Mean, standard deviation, and parametric tests.</p>
+                </div>
+
+                <!-- RATIO CONTENT -->
+                <div id="ratio-content" class="level-details hidden text-gray-700">
+                    <h4 class="text-2xl font-bold text-green-600 mb-3">Ratio Data (True Zero, All Arithmetic)</h4>
+                    <p>Represents numerical values where the **intervals are equal and meaningful**, AND there is a **true zero point**. This means that **ratios are meaningful** (e.g., twice as much).</p>
+                    <h5 class="font-bold mt-4">Characteristics:</h5>
+                    <ul class="list-disc ml-6">
+                        <li>Equal intervals between values.</li>
+                        <li>**True zero point.**</li>
+                        <li>All arithmetic operations (addition, subtraction, multiplication, division) are meaningful.</li>
+                    </ul>
+                    <h5 class="font-bold mt-4">Examples:</h5>
+                    <p>Height, Weight, Income, Age, Time, Number of Units Sold ($0 means absence of the quantity$).</p>
+                    <h5 class="font-bold mt-4">Appropriate Statistics:</h5>
+                    <p>Mean, standard deviation, coefficient of variation, and all parametric tests.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE CHALLENGE (THE 10-MINUTE TEST) -->
+        <section class="mb-12 bg-gray-50 p-8 rounded-xl shadow-xl border-t-4 border-purple-600">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-700 mb-6 border-b pb-2 flex items-center">
+                <svg class="w-8 h-8 text-purple-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2m-4 0V3m0 2v2m0 12v-4m-6 0h12"></path></svg>
+                3. The Data Classification Challenge
+            </h2>
+            <p class="text-md text-gray-600 mb-6">Test your knowledge! Classify the example data below by its main Type and its Level of Measurement (NOIR).</p>
+
+            <div class="bg-white p-6 rounded-lg shadow-inner mb-6">
+                <p class="text-lg font-medium text-gray-700">Data Example:</p>
+                <p id="data-prompt" class="text-2xl font-bold text-purple-700 mt-2 italic">[Click "New Example" to start]</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Data Type Selection -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-3">A. Select Data Type:</h4>
+                    <div class="flex space-x-4">
+                        <button class="type-btn w-full bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 transition" data-type="Qualitative" onclick="checkType('Qualitative')">Qualitative</button>
+                        <button class="type-btn w-full bg-green-500 text-white p-3 rounded-lg font-semibold hover:bg-green-600 transition" data-type="Quantitative" onclick="checkType('Quantitative')">Quantitative</button>
+                    </div>
+                    <div id="type-feedback" class="mt-3 font-medium text-center"></div>
+                </div>
+
+                <!-- Level of Measurement Selection -->
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-3">B. Select Measurement Level:</h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="level-quiz-btn bg-gray-300 text-gray-800 p-3 rounded-lg font-semibold hover:bg-gray-400 transition" data-level-quiz="Nominal" onclick="checkLevel('Nominal')">Nominal</button>
+                        <button class="level-quiz-btn bg-gray-300 text-gray-800 p-3 rounded-lg font-semibold hover:bg-gray-400 transition" data-level-quiz="Ordinal" onclick="checkLevel('Ordinal')">Ordinal</button>
+                        <button class="level-quiz-btn bg-gray-300 text-gray-800 p-3 rounded-lg font-semibold hover:bg-gray-400 transition" data-level-quiz="Interval" onclick="checkLevel('Interval')">Interval</button>
+                        <button class="level-quiz-btn bg-gray-300 text-gray-800 p-3 rounded-lg font-semibold hover:bg-gray-400 transition" data-level-quiz="Ratio" onclick="checkLevel('Ratio')">Ratio</button>
+                    </div>
+                    <div id="level-feedback" class="mt-3 font-medium text-center"></div>
+                </div>
+            </div>
+
+            <button class="w-full mt-6 bg-purple-600 text-white p-4 rounded-xl font-bold text-lg hover:bg-purple-700 transition shadow-lg" onclick="generateExample()">New Example</button>
+
+            <div id="quiz-hint" class="mt-4 p-3 bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-lg text-sm hidden">
+                <span class="font-bold">Hint:</span> <span id="hint-text"></span>
+            </div>
+
+        </section>
+
+        <!-- CONCLUSION/SUMMARY -->
+        <footer class="text-center mt-12 pt-6 border-t border-gray-300">
+            <p class="text-xl font-semibold text-gray-700">Session Complete!</p>
+            <p class="text-md text-gray-500 mt-2">You now understand the two main data types and the four levels of measurement (Nominal, Ordinal, Interval, Ratio). This foundation is crucial for selecting appropriate statistical tests.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // --- DATA STRUCTURE FOR QUIZ ---
+        const examples = [
+            { text: "Colors of cars in a parking lot (Red, Blue, Black)", type: "Qualitative", level: "Nominal", hint: "These are labels only, with no order and no numerical value." },
+            { text: "Temperature in Celsius (e.g., 15°C, 30°C)", type: "Quantitative", level: "Interval", hint: "Equal intervals exist, but 0°C is not a true absence of heat, so ratios are invalid." },
+            { text: "The number of children in a household (0, 1, 2, 3...)", type: "Quantitative", level: "Ratio", hint: "A true zero (no children) exists, and ratios are meaningful (2 is double 1). Discrete." },
+            { text: "Movie ratings (5-star scale: 'Poor' to 'Excellent')", type: "Qualitative", level: "Ordinal", hint: "The order matters (Excellent > Good), but the difference between categories is subjective, not mathematically equal." },
+            { text: "Time taken to run a mile (e.g., 5.4 minutes)", type: "Quantitative", level: "Ratio", hint: "A true zero (0 minutes) exists, and all arithmetic operations, including ratios, are valid. Continuous." },
+            { text: "Social Security Numbers", type: "Qualitative", level: "Nominal", hint: "These are just numerical labels for identification; the digits have no mathematical meaning or order." },
+            { text: "The year an event occurred (e.g., 2024)", type: "Quantitative", level: "Interval", hint: "Year 0 is arbitrary, not the beginning of all time. Time elapsed is meaningful (interval), but zero is not absolute." },
+            { text: "Salary of employees in dollars", type: "Quantitative", level: "Ratio", hint: "A salary of $0 is a true absence of income, and $100k is twice $50k. All math applies." },
+            { text: "Level of pain reported by a patient (Low, Medium, High)", type: "Qualitative", level: "Ordinal", hint: "Categories are ranked, but we don't know if the gap between Low and Medium is the same as Medium and High." },
+        ];
+
+        let currentExample = null;
+
+        // --- SECTION 1: COLLAPSIBLE DETAILS ---
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            const icon = document.getElementById(id.replace('-details', '-icon'));
+            details.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // --- SECTION 2: LEVEL TABS ---
+        function showLevel(level) {
+            // Hide all details and placeholder
+            document.querySelectorAll('.level-details').forEach(el => el.classList.add('hidden'));
+            document.getElementById('placeholder-content').classList.add('hidden');
+
+            // Deactivate all buttons
+            document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('active-level', 'bg-blue-600', 'text-white'));
+
+            // Show the selected content
+            document.getElementById(`${level}-content`).classList.remove('hidden');
+
+            // Activate the selected button
+            const activeBtn = document.querySelector(`.level-btn[data-level="${level}"]`);
+            if (activeBtn) {
+                // Remove previous border color and apply a strong active style
+                activeBtn.classList.add('active-level', 'bg-blue-600', 'text-white');
+                activeBtn.style.borderColor = 'white';
+            }
+        }
+
+        // --- SECTION 3: QUIZ LOGIC ---
+        function generateExample() {
+            // Reset state
+            document.getElementById('type-feedback').textContent = '';
+            document.getElementById('level-feedback').textContent = '';
+            document.getElementById('quiz-hint').classList.add('hidden');
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('bg-green-600', 'bg-red-600', 'bg-blue-700', 'bg-blue-500');
+                btn.classList.add('bg-blue-500');
+            });
+            document.querySelectorAll('.level-quiz-btn').forEach(btn => {
+                btn.classList.remove('bg-green-600', 'bg-red-600', 'bg-gray-500');
+                btn.classList.add('bg-gray-300');
+            });
+
+            // Select a new random example
+            const randomIndex = Math.floor(Math.random() * examples.length);
+            currentExample = examples[randomIndex];
+            document.getElementById('data-prompt').textContent = currentExample.text;
+        }
+
+        function checkType(selectedType) {
+            if (!currentExample) {
+                document.getElementById('type-feedback').textContent = 'Please click "New Example" first!';
+                document.getElementById('type-feedback').classList.add('text-red-600');
+                return;
+            }
+
+            const feedbackEl = document.getElementById('type-feedback');
+            const button = document.querySelector(`.type-btn[data-type="${selectedType}"]`);
+
+            // Clear previous feedback and button styles
+            document.querySelectorAll('.type-btn').forEach(btn => {
+                btn.classList.remove('bg-green-600', 'bg-red-600', 'bg-blue-700', 'bg-blue-500');
+                btn.classList.add('bg-blue-500');
+            });
+            feedbackEl.textContent = '';
+            feedbackEl.classList.remove('text-green-600', 'text-red-600');
+
+            // Check answer
+            if (selectedType === currentExample.type) {
+                feedbackEl.textContent = 'Correct! This is ' + currentExample.type + ' Data.';
+                feedbackEl.classList.add('text-green-600');
+                button.classList.remove('bg-blue-500');
+                button.classList.add('bg-green-600');
+            } else {
+                feedbackEl.textContent = `Incorrect. Hint: This is ${currentExample.type} Data.`;
+                feedbackEl.classList.add('text-red-600');
+                button.classList.remove('bg-blue-500');
+                button.classList.add('bg-red-600');
+                showHint();
+            }
+        }
+
+        function checkLevel(selectedLevel) {
+            if (!currentExample) {
+                document.getElementById('level-feedback').textContent = 'Please click "New Example" first!';
+                document.getElementById('level-feedback').classList.add('text-red-600');
+                return;
+            }
+
+            const feedbackEl = document.getElementById('level-feedback');
+            const button = document.querySelector(`.level-quiz-btn[data-level-quiz="${selectedLevel}"]`);
+
+            // Clear previous feedback and button styles
+            document.querySelectorAll('.level-quiz-btn').forEach(btn => {
+                btn.classList.remove('bg-green-600', 'bg-red-600', 'bg-gray-500');
+                btn.classList.add('bg-gray-300');
+            });
+            feedbackEl.textContent = '';
+            feedbackEl.classList.remove('text-green-600', 'text-red-600');
+
+            // Check answer
+            if (selectedLevel === currentExample.level) {
+                feedbackEl.textContent = 'Correct! The Level is ' + currentExample.level + '.';
+                feedbackEl.classList.add('text-green-600');
+                button.classList.remove('bg-gray-300');
+                button.classList.add('bg-green-600', 'text-white');
+            } else {
+                feedbackEl.textContent = `Incorrect. Hint: The Level is ${currentExample.level}.`;
+                feedbackEl.classList.add('text-red-600');
+                button.classList.remove('bg-gray-300');
+                button.classList.add('bg-red-600', 'text-white');
+                showHint();
+            }
+
+            // Highlight the correct answer
+            const correctBtn = document.querySelector(`.level-quiz-btn[data-level-quiz="${currentExample.level}"]`);
+            if (correctBtn && selectedLevel !== currentExample.level) {
+                 correctBtn.classList.remove('bg-gray-300');
+                 correctBtn.classList.add('bg-gray-500', 'text-white');
+            }
+        }
+
+        function showHint() {
+            document.getElementById('hint-text').textContent = currentExample.hint;
+            document.getElementById('quiz-hint').classList.remove('hidden');
+        }
+
+        // Initialize by showing Nominal level and generating the first example
+        window.onload = function() {
+            showLevel('nominal');
+            generateExample();
+        };
+
+    </script>
+
+</body>
+</html
